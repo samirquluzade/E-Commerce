@@ -1,149 +1,249 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { logout } from "../actions/UserActions";
 export const Header = () => {
+  const cart = useSelector(state => state.cart);
+  const { cartItems } = cart;
+  const user = useSelector(state => state.userLogin);
+  const { userInfo } = user;
+  const dispatch = useDispatch();
+  const logoutHandler = () => {
+    dispatch(logout());
+  };
   return (
     <header>
       <input type="checkbox" id="check" />
       <label for="check" className="checkbtn">
         <i className="fas fa-bars"></i>
       </label>
-      <a href="/">
+      <Link
+        onClick={() => {
+          window.location.href = "/";
+        }}
+      >
         <img
           className="logo"
           src="/images/1_6jjSw8IqGbsPZp7L_43YyQ.png"
           alt="logo"
         />
-      </a>
+      </Link>
       <nav>
         <ul className="nav__links">
           <li>
-            <a href="#">
+            <Link to="/products/Telephone">
               Telefonlar <i className="fas fa-caret-down"></i>
-            </a>
+            </Link>
             <ul>
               <li>
-                <a href="#">APPLE</a>
+                <Link to="/products/Telephone/Iphone">APPLE</Link>
               </li>
               <li>
-                <a href="#">SAMSUNG</a>
+                <Link to="/products/Telephone/Samsung">SAMSUNG</Link>
               </li>
               <li>
-                <a href="#">XIAOMI</a>
+                <Link to="/products/Telephone/Xiaomi">XIAOMI</Link>
               </li>
               <li>
-                <a href="#">HONOR</a>
+                <Link to="/products/Telephone/Honor">HONOR</Link>
               </li>
               <li>
-                <a href="#">ONEPLUS</a>
+                <Link to="/products/Telephone/Oneplus">ONEPLUS</Link>
               </li>
               <li>
-                <a href="#">NOKIA</a>
+                <Link to="/products/Telephone/Nokia">NOKIA</Link>
               </li>
             </ul>
           </li>
           <li>
-            <a href="#">
+            <Link to="/products/Computer">
               Kompüterlər <i className="fas fa-caret-down"></i>
-            </a>
+            </Link>
             <ul>
               <li>
-                <a href="#">APPLE</a>
+                <Link to="/products/Computer/MacBook">APPLE</Link>
               </li>
               <li>
-                <a href="#">ASUS</a>
+                <Link to="/products/Computer/VivoBook">ASUS</Link>
               </li>
               <li>
-                <a href="#">DELL</a>
+                <Link to="/products/Computer/Dell">DELL</Link>
               </li>
               <li>
-                <a href="#">HP</a>
+                <Link to="/products/Computer/Hp">HP</Link>
               </li>
               <li>
-                <a href="#">ACER</a>
+                <Link to="/products/Computer/Aspire">ACER</Link>
               </li>
               <li>
-                <a href="#">LENOVO</a>
+                <Link to="/products/Computer/IdeaPad">LENOVO</Link>
               </li>
             </ul>
           </li>
           <li>
-            <a href="#">
+            <Link to="/" onClick={() => window.location.reload()}>
               Saatlar <i className="fas fa-caret-down"></i>
-            </a>
+            </Link>
             <ul>
               <li>
-                <a href="#">APPLE</a>
+                <Link to="/" onClick={() => window.location.reload()}>
+                  APPLE
+                </Link>
               </li>
               <li>
-                <a href="#">HUAWEI</a>
+                <Link to="/" onClick={() => window.location.reload()}>
+                  HUAWEI
+                </Link>
               </li>
               <li>
-                <a href="#">XIAOMI</a>
+                <Link to="/" onClick={() => window.location.reload()}>
+                  XIAOMI
+                </Link>
               </li>
               <li>
-                <a href="#">SAMSUNG</a>
+                <Link to="/" onClick={() => window.location.reload()}>
+                  SAMSUNG
+                </Link>
               </li>
               <li>
-                <a href="#">CASIO</a>
+                <Link to="/" onClick={() => window.location.reload()}>
+                  CASIO
+                </Link>
               </li>
               <li>
-                <a href="#">EDIFICE</a>
+                <Link to="/" onClick={() => window.location.reload()}>
+                  EDIFICE
+                </Link>
               </li>
             </ul>
           </li>
           <li>
-            <a href="#">
+            <Link to="/products/TV">
               Televizorlar <i className="fas fa-caret-down"></i>
-            </a>
+            </Link>
             <ul>
               <li>
-                <a href="#">Samsung</a>
+                <Link to="/products/TV/Smart">LG</Link>
               </li>
               <li>
-                <a href="#">LG</a>
+                <Link to="/" onClick={() => window.location.reload()}>
+                  Samsung
+                </Link>
               </li>
               <li>
-                <a href="#">TOSHIBA</a>
+                <Link to="/" onClick={() => window.location.reload()}>
+                  TOSHIBA
+                </Link>
               </li>
               <li>
-                <a href="#">XIAOMI</a>
+                <Link to="/" onClick={() => window.location.reload()}>
+                  XIAOMI
+                </Link>
               </li>
               <li>
-                <a href="#">SONY</a>
+                <Link to="/" onClick={() => window.location.reload()}>
+                  SONY
+                </Link>
               </li>
               <li>
-                <a href="#">SKYWORTH</a>
+                <Link to="/" onClick={() => window.location.reload()}>
+                  SKYWORTH
+                </Link>
               </li>
             </ul>
           </li>
           <li>
-            <a href="#">
+            <Link to="/" onClick={() => window.location.reload()}>
               Fotoaparatlar <i className="fas fa-caret-down"></i>
-            </a>
+            </Link>
             <ul>
               <li>
-                <a href="#">CANON</a>
+                <Link to="/" onClick={() => window.location.reload()}>
+                  CANON
+                </Link>
               </li>
               <li>
-                <a href="#">FUJFILM</a>
+                <Link to="/" onClick={() => window.location.reload()}>
+                  FUJFILM
+                </Link>
               </li>
               <li>
-                <a href="#">SONY</a>
+                <Link to="/" onClick={() => window.location.reload()}>
+                  SONY
+                </Link>
               </li>
             </ul>
           </li>
         </ul>
       </nav>
-      <i className="fas fa-shopping-basket basket">
-        <span>3</span>
-      </i>
-      <div className="auth-buttons">
-        <a className="cta" href="#">
-          <button>Qeydiyyat</button>
-        </a>
-        <a className="cta" href="#">
-          <button>Daxil ol</button>
-        </a>
-      </div>
+      <Link to="/cart">
+        <i className="fas fa-shopping-basket basket">
+          {cartItems.length > 0 && <span>{cartItems.length}</span>}
+        </i>
+      </Link>
+      {userInfo ? (
+        <div
+          className="dropdown"
+          style={{ display: "flex", alignItems: "center" }}
+        >
+          <Link
+            to="#"
+            style={{ marginRight: "10px" }}
+            className="dropdown-toggle"
+            id="dropdownmenu2"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            {userInfo.name} <i className="fa fa-caret-down"></i>{" "}
+          </Link>
+          <div className="dropdown-menu" aria-labelledby="dropdownmenu2">
+            <Link className="dropdown-item" to="/profile">
+              Tənzimləmələr
+            </Link>
+            <br />
+            <Link className="dropdown-item" to="/orderhistory">
+              Sifariş tarixçəsi
+            </Link>
+          </div>
+          <Link to="/" onClick={logoutHandler} className="cta">
+            <button className="btn btn-danger">Çıxış</button>
+          </Link>
+        </div>
+      ) : (
+        <div className="auth-buttons">
+          <Link className="cta" to="/register">
+            <button>Qeydiyyat</button>
+          </Link>
+          <Link className="cta" to="/login">
+            <button>Daxil ol</button>
+          </Link>
+        </div>
+      )}
+      {userInfo && userInfo.isAdmin && (
+        <div className="dropdown">
+          <Link to="#admin">
+            Admin <i className="fa fa-caret-down"></i>
+          </Link>
+          <div className="dropdown-menu" aria-labelledby="dropdownmenu2">
+            <Link className="dropdown-item" to="/dashboard">
+              Əsas səhifə
+            </Link>
+            <br />
+            <Link className="dropdown-item" to="/productlist">
+              Məhsullar
+            </Link>
+            <br />
+            <Link className="dropdown-item" to="/orderlist">
+              Sifarişlər
+            </Link>
+            <br />
+            <Link className="dropdown-item" to="/userlist">
+              İstifadəçilər
+            </Link>
+          </div>
+        </div>
+      )}
     </header>
   );
 };

@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
-import axios from "axios";
 import { Product } from "./product";
 import { LoadingBox } from "./LoadingBox";
 import { MessageBox } from "./MessageBox";
 import { useDispatch, useSelector } from "react-redux";
 import { listProducts } from "../actions/ProductActions";
+import { Link } from "react-router-dom";
 
 export const Campaign = () => {
   const dispatch = useDispatch();
@@ -48,7 +48,7 @@ export const Campaign = () => {
               </div>
             </div>
             <div className="offers text-center">
-              <a href="#">Bütün təkliflərə bax</a>
+              <Link to="/products/Telephone">Bütün məhsullara bax</Link>
             </div>
           </div>
         </section>

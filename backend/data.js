@@ -1,7 +1,21 @@
+import bcrypt from "bcryptjs";
 const data = {
+  users: [
+    {
+      name: "Samir",
+      email: "admin@example.com",
+      password: bcrypt.hashSync("12345678", 8),
+      isAdmin: true,
+    },
+    {
+      name: "John",
+      email: "user@example.com",
+      password: bcrypt.hashSync("12345678", 8),
+      isAdmin: false,
+    },
+  ],
   products: [
     {
-      _id: "1",
       name: "IPHONE SE 64 GB BLACK",
       category: "Telephone",
       image: "/images/iphone_se_qara-1-removebg-preview.png",
@@ -18,7 +32,6 @@ const data = {
       SIM: 1,
     },
     {
-      _id: "2",
       name: "IPHONE SE 128 GB BLACK",
       category: "Telephone",
       image: "/images/iphone_se_qara-1-removebg-preview.png",
@@ -34,7 +47,6 @@ const data = {
       SIM: 1,
     },
     {
-      _id: "3",
       name: "IPHONE 11 64 GB BLACK",
       category: "Telephone",
       image: "/images/iphone11_black-1-removebg-preview.png",
@@ -50,7 +62,6 @@ const data = {
       SIM: 1,
     },
     {
-      _id: "4",
       name: "IPHONE 12 mini 64 GB BLACK",
       category: "Telephone",
       image: "/images/12mini_black-1-removebg-preview.png",
@@ -66,7 +77,6 @@ const data = {
       SIM: 1,
     },
     {
-      _id: "5",
       name: "IPHONE 11 128 GB BLACK",
       category: "Telephone",
       image: "/images/iphone11_black-1-removebg-preview.png",
@@ -82,7 +92,6 @@ const data = {
       SIM: 1,
     },
     {
-      _id: "6",
       name: "IPHONE 12 mini 128 GB BLACK",
       category: "Telephone",
       image: "/images/12mini_black-1-removebg-preview.png",
@@ -98,7 +107,6 @@ const data = {
       SIM: 1,
     },
     {
-      _id: "7",
       name: "iPhone XS Max 64 GB Space Gray",
       category: "Telephone",
       image: "/images/xsmaxspacegrey-1-removebg-preview.png",
@@ -114,7 +122,6 @@ const data = {
       SIM: 1,
     },
     {
-      _id: "8",
       name: "iPhone 11 Pro 64 GB Grey",
       category: "Telephone",
       image: "/images/iphone11pro_grey-1-removebg-preview.png",
@@ -130,7 +137,6 @@ const data = {
       SIM: 1,
     },
     {
-      _id: "9",
       name: "iPhone 12 Pro 128 GB Gold",
       category: "Telephone",
       image: "/images/12pro_gold-1-removebg-preview.png",
@@ -146,7 +152,6 @@ const data = {
       SIM: 1,
     },
     {
-      _id: "10",
       name: "iPhone 11 Pro Max 64 GB Green",
       category: "Telephone",
       image: "/images/iphone11promax_green-1-removebg-preview.png",
@@ -162,7 +167,6 @@ const data = {
       SIM: 1,
     },
     {
-      _id: "11",
       name: "iPhone 12 Pro Max 256 GB Blue",
       category: "Telephone",
       image: "/images/12promax_blue-1-removebg-preview.png",
@@ -178,7 +182,6 @@ const data = {
       SIM: 1,
     },
     {
-      _id: "12",
       name: "iPhone 12 Pro Max 512 GB Gold",
       category: "Telephone",
       image: "/images/12promax_gold-1-removebg-preview.png",
@@ -194,7 +197,6 @@ const data = {
       SIM: 1,
     },
     {
-      _id: "13",
       name: "Samsung Galaxy A01 Core Black",
       category: "Telephone",
       image: "/images/a013_black-1-removebg-preview.png",
@@ -210,7 +212,6 @@ const data = {
       SIM: 2,
     },
     {
-      _id: "14",
       name: "Samsung Galaxy A02 Black",
       category: "Telephone",
       image: "/images/a022_black-1-removebg-preview.png",
@@ -226,7 +227,6 @@ const data = {
       SIM: 2,
     },
     {
-      _id: "15",
       name: "Samsung Galaxy A10s Dark Red",
       category: "Telephone",
       image: "/images/a107_red-3-removebg-preview.png",
@@ -242,7 +242,6 @@ const data = {
       SIM: 2,
     },
     {
-      _id: "16",
       name: "Samsung Galaxy A02s Black",
       category: "Telephone",
       image: "/images/a025_black-1-removebg-preview.png",
@@ -258,7 +257,6 @@ const data = {
       SIM: 2,
     },
     {
-      _id: "17",
       name: "Samsung Galaxy A12 32GB Black",
       category: "Telephone",
       image: "/images/a125_black-1-removebg-preview.png",
@@ -274,7 +272,6 @@ const data = {
       SIM: 2,
     },
     {
-      _id: "18",
       name: "Samsung Galaxy A21s 64 GB Blue",
       category: "Telephone",
       image: "/images/a217_blue-1-removebg-preview.png",
@@ -290,7 +287,6 @@ const data = {
       SIM: 2,
     },
     {
-      _id: "19",
       name: "Samsung Galaxy A22 64GB Black",
       category: "Telephone",
       image: "/images/a225_black-1-removebg-preview.png",
@@ -306,7 +302,6 @@ const data = {
       SIM: 2,
     },
     {
-      _id: "20",
       name: "Samsung Galaxy A32 64GB Black",
       category: "Telephone",
       image: "/images/a325_black-1-removebg-preview.png",
@@ -322,7 +317,6 @@ const data = {
       SIM: 2,
     },
     {
-      _id: "21",
       name: "Samsung Galaxy A22 128GB Black",
       category: "Telephone",
       image: "/images/a225_black-1-removebg-preview.png",
@@ -338,7 +332,6 @@ const data = {
       SIM: 2,
     },
     {
-      _id: "22",
       name: "Samsung Galaxy A52 128GB Black",
       category: "Telephone",
       image: "/images/a525_black-1-removebg-preview.png",
@@ -354,7 +347,6 @@ const data = {
       SIM: 2,
     },
     {
-      _id: "23",
       name: "Samsung Galaxy A72 128GB Black",
       category: "Telephone",
       image: "/images/a725_black-1-removebg-preview.png",
@@ -371,7 +363,6 @@ const data = {
       SIM: 2,
     },
     {
-      _id: "24",
       name: "Samsung Galaxy Note 10 Lite Red",
       category: "Telephone",
       image: "/images/n770_red-1-removebg-preview.png",
@@ -387,7 +378,6 @@ const data = {
       SIM: 2,
     },
     {
-      _id: "25",
       name: "Xiaomi Redmi 9 32GB Grey",
       category: "Telephone",
       image: "/images/redmi9_grey-1-removebg-preview.png",
@@ -403,7 +393,6 @@ const data = {
       SIM: 2,
     },
     {
-      _id: "26",
       name: "Xiaomi Poco M3 64GB Black",
       category: "Telephone",
       image: "/images/m3_black-1-removebg-preview.png",
@@ -419,7 +408,6 @@ const data = {
       SIM: 2,
     },
     {
-      _id: "27",
       name: "Xiaomi Redmi Note 9 64GB Grey",
       category: "Telephone",
       image: "/images/note9_grey-1-removebg-preview.png",
@@ -435,7 +423,6 @@ const data = {
       SIM: 2,
     },
     {
-      _id: "28",
       name: "Xiaomi Redmi Note 10 64GB Grey",
       category: "Telephone",
       image: "/images/note10_grey-1-removebg-preview.png",
@@ -451,7 +438,6 @@ const data = {
       SIM: 2,
     },
     {
-      _id: "29",
       name: "Xiaomi Poco M3 Pro 5G 64GB Black",
       category: "Telephone",
       image: "/images/m3pro_black-1-removebg-preview.png",
@@ -467,7 +453,6 @@ const data = {
       SIM: 2,
     },
     {
-      _id: "30",
       name: "Xiaomi Redmi Note 10 128GB Grey",
       category: "Telephone",
       image: "/images/note10_grey-3-removebg-preview.png",
@@ -484,7 +469,6 @@ const data = {
       SIM: 2,
     },
     {
-      _id: "31",
       name: "Honor 8A Prime 64 GB Black",
       category: "Telephone",
       image: "/images/8aprime_blackpng-1-removebg-preview.png",
@@ -500,7 +484,6 @@ const data = {
       SIM: 2,
     },
     {
-      _id: "32",
       name: "Honor 10i Black",
       category: "Telephone",
       image: "/images/honor_10i-black-1-removebg-preview.png",
@@ -516,7 +499,6 @@ const data = {
       SIM: 2,
     },
     {
-      _id: "33",
       name: "Honor 20 128 GB Black",
       category: "Telephone",
       image: "/images/honor20_black-1-removebg-preview.png",
@@ -532,7 +514,6 @@ const data = {
       SIM: 2,
     },
     {
-      _id: "34",
       name: "Honor 20 Pro 256 GB Phantome Blue",
       category: "Telephone",
       image: "/images/honor20_black-1-removebg-preview.png",
@@ -548,7 +529,6 @@ const data = {
       SIM: 2,
     },
     {
-      _id: "35",
       name: "Honor 30 128 GB Black",
       category: "Telephone",
       image: "/images/honor30_black-1-removebg-preview.png",
@@ -564,7 +544,6 @@ const data = {
       SIM: 2,
     },
     {
-      _id: "36",
       name: "Honor 30 256 GB Silver",
       category: "Telephone",
       image: "/images/honor30_silver-1-removebg-preview.png",
@@ -581,7 +560,6 @@ const data = {
       SIM: 2,
     },
     {
-      _id: "37",
       name: "Oneplus N10 128GB Midnight Ice",
       category: "Telephone",
       image: "/images/n10_mice-1-removebg-preview.png",
@@ -597,7 +575,6 @@ const data = {
       SIM: 2,
     },
     {
-      _id: "38",
       name: "OnePlus 8 Pro 128GB Black",
       category: "Telephone",
       image: "/images/oneplus8pro_black-1-removebg-preview.png",
@@ -614,7 +591,6 @@ const data = {
       SIM: 2,
     },
     {
-      _id: "39",
       name: "OnePlus 8 Pro 256GB Blue",
       category: "Telephone",
       image: "/images/oneplus8pro_blue-1-removebg-preview.png",
@@ -630,7 +606,6 @@ const data = {
       SIM: 2,
     },
     {
-      _id: "40",
       name: "Nokia 106 Grey",
       category: "Telephone",
       image: "/images/nokia106_grey-1-removebg-preview.png",
@@ -646,7 +621,6 @@ const data = {
       SIM: 2,
     },
     {
-      _id: "41",
       name: "Nokia 1 Plus Black",
       category: "Telephone",
       image: "/images/nokia1plus_black-1-removebg-preview.png",
@@ -662,7 +636,6 @@ const data = {
       SIM: 2,
     },
     {
-      _id: "42",
       name: "Apple Macbook Air 13.3 Silver (MVFK2)",
       category: "Computer",
       image: "/images/apple-macbook-air-13_1-1-removebg-preview.png",
@@ -678,7 +651,6 @@ const data = {
       SIM: 2, //Nuve sayi
     },
     {
-      _id: "43",
       name: "Apple Macbook Air 13.3 Gold (MREF2LL)",
       category: "Computer",
       image: "/images/mref2-1-1_1-removebg-preview.png",
@@ -694,7 +666,6 @@ const data = {
       SIM: 2, //Nuve sayi
     },
     {
-      _id: "44",
       name: "Apple MacBook Air M1 (MGN93RU)",
       category: "Computer",
       image: "/images/1-1-removebg-preview.png",
@@ -710,7 +681,6 @@ const data = {
       SIM: 2, //Nuve sayi
     },
     {
-      _id: "45",
       name: "Apple Macbook Pro 13.3 Silver (MPXU2)",
       category: "Computer",
       image:
@@ -727,7 +697,6 @@ const data = {
       SIM: 2, //Nuve sayi
     },
     {
-      _id: "46",
       name: "Apple MacBook Air M1 (MGN73UA)",
       category: "Computer",
       image: "/images/apple-macbook-air-m1-mgn73ua_1-1-removebg-preview.png",
@@ -743,10 +712,9 @@ const data = {
       SIM: 8, //Nuve sayi
     },
     {
-      _id: "47",
       name: "Apple MacBook Pro (MYD82UA) ",
       category: "Computer",
-      image: "/images/1-1-removebg-preview (1).png",
+      image: "/images/apple-macbook-air-m1-mgn73ua_1-1-removebg-preview.png",
       price: 3529,
       brand: "MacBook",
       MP: "Apple M1", //Processor
@@ -759,10 +727,9 @@ const data = {
       SIM: 8, //Nuve sayi
     },
     {
-      _id: "48",
       name: "Apple MacBook Pro M1 (MYDA2RU)",
       category: "Computer",
-      image: "/images/1-1-removebg-preview (1).png",
+      image: "/images/apple-macbook-air-m1-mgn73ua_1-1-removebg-preview.png",
       price: 3529,
       brand: "MacBook",
       MP: "Apple M1", //Processor
@@ -775,7 +742,6 @@ const data = {
       SIM: 8, //Nuve sayi
     },
     {
-      _id: "49",
       name: "Apple Macbook Pro 13 Touch Bar (MR9Q2)",
       category: "Computer",
       image: "/images/item_xl_36581124_143760079-1-removebg-preview.png",
@@ -791,7 +757,6 @@ const data = {
       SIM: 4, //Nuve sayi
     },
     {
-      _id: "50",
       name: "Apple MacBook Pro (MYD92RU)",
       category: "Computer",
       image: "/images/item_xl_36581124_143760079-1-removebg-preview.png",
@@ -808,7 +773,6 @@ const data = {
       SIM: 8, //Nuve sayi
     },
     {
-      _id: "51",
       name: "Apple Macbook Pro 15 Touch Bar (MV922)",
       category: "Computer",
       image:
@@ -825,7 +789,6 @@ const data = {
       SIM: 6, //Nuve sayi
     },
     {
-      _id: "52",
       name: "Apple Macbook Pro 15 Touch Bar (MV932)",
       category: "Computer",
       image:
@@ -842,7 +805,6 @@ const data = {
       SIM: 8, //Nuve sayi
     },
     {
-      _id: "53",
       name: "Apple Macbook Pro 15 Touch Bar (MV912)",
       category: "Computer",
       image:
@@ -859,7 +821,6 @@ const data = {
       SIM: 8, //Nuve sayi
     },
     {
-      _id: "54",
       name: "Asus VivoBook X515MA-BR062 (M05230)",
       category: "Computer",
       image:
@@ -876,7 +837,6 @@ const data = {
       SIM: 2, //Nuve sayi
     },
     {
-      _id: "55",
       name: "Asus VivoBook D515DA-BR028 (M09710)",
       category: "Computer",
       image:
@@ -893,7 +853,6 @@ const data = {
       SIM: 2, //Nuve sayi
     },
     {
-      _id: "56",
       name: "Asus UX391FA-AH027T (M00990)",
       category: "Computer",
       image: "/images/asus-ux391fa-ah027t-m00990_1-1-removebg-preview.png",
@@ -910,7 +869,6 @@ const data = {
       SIM: 4, //Nuve sayi
     },
     {
-      _id: "57",
       name: "Acer Aspire 3 A315-34-C3PR (NXHE3ER00N)",
       category: "Computer",
       image:
@@ -927,7 +885,6 @@ const data = {
       SIM: 2, //Nuve sayi
     },
     {
-      _id: "58",
       name: "Acer A315-56-35AR (NXHS5ER004)",
       category: "Computer",
       image: "/images/acer-a315-56-35ar-nxhs5er004-1-removebg-preview.png",
@@ -943,7 +900,6 @@ const data = {
       SIM: 2, //Nuve sayi
     },
     {
-      _id: "59",
       name: "Acer Extensa EX215-52-31VH (NXEG8ER010)",
       category: "Computer",
       image:
@@ -960,7 +916,6 @@ const data = {
       SIM: 2, //Nuve sayi
     },
     {
-      _id: "60",
       name: "Dell 3501-6330",
       category: "Computer",
       image: "/images/dell-3501-6330_1-1-removebg-preview.png",
@@ -976,7 +931,6 @@ const data = {
       SIM: 2, //Nuve sayi
     },
     {
-      _id: "61",
       name: "Dell 3410-2735",
       category: "Computer",
       image: "/images/dell-3501-6330_1-1-removebg-preview.png",
@@ -992,7 +946,6 @@ const data = {
       SIM: 2, //Nuve sayi
     },
     {
-      _id: "62",
       name: "Dell 5587-6588",
       category: "Computer",
       image: "/images/dell_5587-6588_1-1-removebg-preview.png",
@@ -1009,7 +962,6 @@ const data = {
       SIM: 6, //Nuve sayi
     },
     {
-      _id: "63",
       name: "HP 250 G7 (214B0ES)",
       category: "Computer",
       image: "/images/hp-250-g7-7dc15ea_1-1-removebg-preview.png",
@@ -1025,7 +977,6 @@ const data = {
       SIM: 2, //Nuve sayi
     },
     {
-      _id: "64",
       name: "HP 14s-fq0005ur (1U2X5EA)",
       category: "Computer",
       image: "/images/hp-14s-fq0048ur-24c61ea_1-1-removebg-preview.png",
@@ -1041,7 +992,6 @@ const data = {
       SIM: 6, //Nuve sayi
     },
     {
-      _id: "65",
       name: "HP OMEN 15-DC0025UR (4GW00EA)",
       category: "Computer",
       image: "/images/hp-omen-15-dc0025ur-4gw00ea_1-1-removebg-preview.png",
@@ -1057,7 +1007,6 @@ const data = {
       SIM: 6, //Nuve sayi
     },
     {
-      _id: "66",
       name: "Lenovo NB V14-IGL N4020 (82C2000YRU)",
       category: "Computer",
       image: "/images/img_0_62_2090_0_1-1-removebg-preview.png",
@@ -1073,7 +1022,6 @@ const data = {
       SIM: 2, //Nuve sayi
     },
     {
-      _id: "67",
       name: "Lenovo IdeaPad 3 15IGL05 (81WQ000JRK)",
       category: "Computer",
       image:
@@ -1090,7 +1038,6 @@ const data = {
       SIM: 4, //Nuve sayi
     },
     {
-      _id: "68",
       name: "Lenovo Legion Y530-15ICH",
       category: "Computer",
       image:
@@ -1108,7 +1055,6 @@ const data = {
       SIM: 6, //Nuve sayi
     },
     {
-      _id: "69",
       name: "LG 32' LED Smart TV (32LM6350PLA)",
       category: "TV",
       image: "/images/lg-32-led-smart-tv-32lm6350bpla_1-1-removebg-preview.png",
@@ -1124,23 +1070,6 @@ const data = {
       SIM: 2, //Akustik
     },
     {
-      _id: "70",
-      name: "LG 32' LED Smart TV (32LM6350PLA)",
-      category: "TV",
-      image: "/images/lg-32-led-smart-tv-32lm6350bpla_1-1-removebg-preview.png",
-      price: 649,
-      brand: "Smart",
-      MP: "MP3, WMA, MPEG4, HEVC (H.265), MKV, JPEG", //Format
-      RAM: 32, //Diaqonal
-      OS: "16:9", //Ekran Formati
-      INCH: 10, // Ses gucu
-      mAH: 4.65, //Cheki
-      memory: "Dolby Digital, DTS", //Audio
-      screen: "1920x1080 (1080p Full HD, HDR)",
-      SIM: 2, //Akustik
-    },
-    {
-      _id: "71",
       name: "LG 43' LED Smart TV (43LM5700)",
       category: "TV",
       image: "/images/lg-43-led-smart-tv-43lm5700_1-1-removebg-preview.png",
@@ -1156,7 +1085,6 @@ const data = {
       SIM: 2, //Akustik
     },
     {
-      _id: "72",
       name: "LG 50' LED Smart NanoCell TV 4K UHD (50NANO796NF)",
       category: "TV",
       image:

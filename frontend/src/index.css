@@ -29,9 +29,84 @@ header{
     align-items: center;
     padding: 15px 5%;
     background-color: white;
-    position: fixed;
+    position: sticky;
+    top:0;
     width: 100%;
     z-index: 100;
+}
+.shop-cart{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 2%;
+}
+.order{
+    text-align: center;
+}
+.price{
+    font-size: 20px;
+}
+.loading{
+    display: block!important;
+}
+/* .form-control{
+    width: 50%!important;
+} */
+.general_order{
+    display: flex;
+    background-color: wheat;
+    flex-direction: row;
+}
+.checkout_order{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid black;
+    /* background-color: wheat; */
+}
+.place_order{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid black;
+}
+.place_order form{
+    display: flex;
+    flex-direction: column;
+}
+.place_order form input{
+    width: 50%;
+    text-align: center;
+    margin: 1% auto;
+    padding: 6px;
+}
+.form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 18px;
+}
+.form div{
+    margin-bottom: 2%;
+}
+.place_order p{
+    font-size: 20px;
+}
+.checkout_order p{
+    font-size: 18px;
+}
+.order_button button{
+    font-size: 20px;
+    margin-top: 2%;
+}
+.shop-cart img{
+    height: 200px;
 }
 .logo{
     cursor: pointer;
@@ -129,6 +204,16 @@ nav ul ul li a{
     .logo{
         height: 30px;
     }
+    .general_order{
+        flex-direction: column;
+    }
+    .place_order{
+        border: 0;
+    }
+    .place_order ul{
+        margin-top: 0%!important;
+        margin-bottom: 20%!important;
+    }
     .nav__links li a{
         font-size: 12px;
     }
@@ -152,6 +237,15 @@ nav ul ul li a{
     }
     .logo{
         display: none;
+    }
+    .shop-cart img{
+        height: 150px;
+    }
+    .product_name{
+        font-size: 14px;
+    }
+    .cart-select .form-control{
+        width: 60px!important;
     }
     header{
         padding: 0px 5%;
@@ -556,4 +650,9 @@ footer{
   }
   .form--signup{
       margin-top: 5%;
+  }
+  @media (max-width:620px){
+    .table{
+        font-size: 10px;
+    }
   }
