@@ -13,6 +13,7 @@
     "express": "^4.17.1",
     "express-async-handler": "^1.1.4",
     "gh-pages": "^3.2.3",
+    "heroku": "^7.56.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.13.2",
     "path": "^0.12.7",
@@ -24,7 +25,8 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "nodemon --watch backend --exec node --experimental-modules backend/server.js",
+    "start": "node --watch backend --exec node --experimental-modules backend/server.js",
+    "dev": "nodemon --watch backend --exec node --experimental-modules backend/server.js",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   },
   "eslintConfig": {
