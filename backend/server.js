@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 import productRouter from "./routers/productRouter.js";
 import userRouter from "./routers/userRouter.js";
 import orderRouter from "./routers/orderRouter.js";
-const path = require("path");
+import path from "path";
 
 dotenv.config();
 const app = express();
