@@ -1149,5 +1149,8 @@
   "bugs": {
     "url": "https://github.com/samirquluzade/E-Commerce/issues"
   },
-  "homepage": "https://github.com/samirquluzade/E-Commerce#readme"
+  "homepage": "https://github.com/samirquluzade/E-Commerce#readme",
+  "engines": {
+    "node": ">=10.0.0"
+  }
 }
