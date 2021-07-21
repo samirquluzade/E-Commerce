@@ -37,10 +37,6 @@ header{
     cursor: pointer;
     height: 50px;
 }
-.section---1{
-    background-color: #f9fbfc;
-    padding-top: 6%;
-}
 .nav__links{
     margin: auto;
     list-style: none;
@@ -156,9 +152,6 @@ nav ul ul li a{
     header{
         padding: 0px 5%;
     }
-    .slide{
-        margin-top: 15%;
-    }
     .product{
         margin-top: 20%!important;
     }
@@ -167,10 +160,6 @@ nav ul ul li a{
     }
     .product-title h3{
         font-size: 20px;
-    }
-    .images img{
-        width: 400px!important;
-        height: 400px!important;
     }
     .nav__links{
         position: fixed;
@@ -195,9 +184,6 @@ nav ul ul li a{
         
     }
 
-    .section--1{
-        padding-top: 20%;
-    }
     .nav__links ul li a{
         font-size: 16px;
     }
@@ -233,12 +219,8 @@ nav ul ul li a{
     }
 }
 /* Slider */
-.section--1{
-    background: #24252A;
-    padding-top: 8%;
-}
 .slider{
-    height: 52rem;
+    height: 49rem;
     margin: 0 auto;
     position: relative;
     text-align: center;
@@ -319,8 +301,8 @@ nav ul ul li a{
     width: 100%;
 }
 .images img{
-    width: 500px;
-    height: 500px;
+    height: 49rem;
+    width: 100%;
 }
 .dots__dot--active {
     /* background-color: #fff; */

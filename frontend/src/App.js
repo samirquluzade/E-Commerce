@@ -20,6 +20,8 @@ import FilteredProductsPriceScreen from "./screens/FilteredProductsPriceScreen";
 import FilteredProductsPriceSecondScreen from "./screens/FilteredProductsPriceSecondScreen";
 import SortedProductsScreen from "./screens/SortedProductsScreen";
 import SortedProductsBrandScreen from "./screens/SortedProductsBrandScreen";
+import AdminProducts from "./screens/AdminProducts";
+import AdminOrders from "./screens/AdminOrders";
 
 function App() {
   return (
@@ -29,12 +31,14 @@ function App() {
         <Switch>
           <Route path="/cart/:id?" component={CartScreen}></Route>
           <Route path="/product/:id" component={ProductScreen} exact></Route>
+          <Route path="/productlist" component={AdminProducts} exact></Route>
           <Route path="/login" component={LoginScreen}></Route>
           <Route path="/register" component={RegisterScreen}></Route>
           <Route path="/shipping" component={ShippingScreen}></Route>
           <Route path="/placeorder" component={PlaceOrderScreen}></Route>
           <Route path="/order/:id" component={OrderScreen}></Route>
           <Route path="/orderhistory" component={OrderHistoryScreen}></Route>
+          <Route path="/orderslist" component={AdminOrders}></Route>
           <Route
             path="/products/:category/:min&:max"
             component={FilteredProductsPriceSecondScreen}

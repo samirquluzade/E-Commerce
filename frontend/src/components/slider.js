@@ -6,7 +6,7 @@ export const Slider = () => {
         <div className="slide slide--1">
           <div className="images">
             <img
-              src={`./images/mref2-1-1_1-removebg-preview.png`}
+              src={`./images/KH2021_071_Advertising_Single_posts_adi_post_web_cover-2.png`}
               alt="macbook"
             />
           </div>
@@ -14,7 +14,7 @@ export const Slider = () => {
         <div className="slide slide--1">
           <div className="images">
             <img
-              src={`./images/iphone11_black-1-removebg-preview.png`}
+              src={`./images/KH2021_071_Advertising_Single_posts_adi_post_web_cover.png`}
               alt="iphone"
             />
           </div>
@@ -22,7 +22,7 @@ export const Slider = () => {
         <div className="slide slide--1">
           <div className="images">
             <img
-              src={`./images/m3_black-1-removebg-preview.png`}
+              src={`./images/KH2021_meiset_az_cover_700x380.png`}
               alt="samsung"
             />
           </div>
@@ -30,7 +30,7 @@ export const Slider = () => {
         <div className="slide slide--1">
           <div className="images">
             <img
-              src={`./images/acer-aspire-3-a315-34-c3pr-nxhe3er00n_1-1-removebg-preview.png`}
+              src={`./images/KH2021_samsung-galaxy-a12_700x380.png`}
               alt="acer"
             />
           </div>
@@ -38,7 +38,7 @@ export const Slider = () => {
         <div className="slide slide--1">
           <div className="images">
             <img
-              src={`./images/a217_blue-1-removebg-preview.png`}
+              src={`./images/KH2021_televizor_az_cover_700x380.png`}
               alt="xiaomi"
             />
           </div>

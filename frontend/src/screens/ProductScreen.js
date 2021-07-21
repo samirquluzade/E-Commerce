@@ -36,9 +36,6 @@ export default function ProductScreen(props) {
             >
               <div class="product-title">
                 <h3>{product.name}</h3>
-                <button style={{ background: "transparent", border: "none" }}>
-                  <i class="far fa-heart"></i>
-                </button>
               </div>
               <div class="product-detail">
                 <div class="row">

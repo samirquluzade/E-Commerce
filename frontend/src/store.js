@@ -4,6 +4,7 @@ import { cartReducer } from "./reducers/CartReducers";
 import {
   orderCreateReducer,
   orderDetailsReducer,
+  orderListReducer,
   orderMineListReducer,
   orderPayReducer,
 } from "./reducers/OrderReducers";
@@ -50,6 +51,7 @@ const reducer = combineReducers({
   orderDetails: orderDetailsReducer,
   orderPay: orderPayReducer,
   orderMineList: orderMineListReducer,
+  ordersList: orderListReducer,
   userDetails: userDetailsReducer,
   userUpdateProfile: userUpdateProfileReducer,
   filteredProducts: filterProductsReducer,

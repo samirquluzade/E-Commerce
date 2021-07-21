@@ -181,7 +181,7 @@ export const Header = () => {
           {cartItems.length > 0 && <span>{cartItems.length}</span>}
         </i>
       </Link>
-      {userInfo ? (
+      {userInfo && !userInfo.isAdmin ? (
         <div
           className="dropdown"
           style={{ display: "flex", alignItems: "center" }}
@@ -210,6 +210,39 @@ export const Header = () => {
             <button className="btn btn-danger">Çıxış</button>
           </Link>
         </div>
+      ) : userInfo && userInfo.isAdmin ? (
+        <div
+          className="dropdown"
+          style={{ display: "flex", alignItems: "center" }}
+        >
+          <Link
+            to="#"
+            style={{ marginRight: "10px" }}
+            className="dropdown-toggle"
+            id="dropdownmenu3"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Admin <i className="fa fa-caret-down"></i>
+          </Link>
+          <div className="dropdown-menu" aria-labelledby="dropdownmenu3">
+            <Link className="dropdown-item" to="/productlist">
+              Məhsullar
+            </Link>
+            <br />
+            <Link className="dropdown-item" to="/orderslist">
+              Sifarişlər
+            </Link>
+            <br />
+            <Link className="dropdown-item" to="/userlist">
+              İstifadəçilər
+            </Link>
+          </div>
+          <Link to="/" onClick={logoutHandler} className="cta">
+            <button className="btn btn-danger">Çıxış</button>
+          </Link>
+        </div>
       ) : (
         <div className="auth-buttons">
           <Link className="cta" to="/register">
@@ -218,30 +251,6 @@ export const Header = () => {
           <Link className="cta" to="/login">
             <button>Daxil ol</button>
           </Link>
-        </div>
-      )}
-      {userInfo && userInfo.isAdmin && (
-        <div className="dropdown">
-          <Link to="#admin">
-            Admin <i className="fa fa-caret-down"></i>
-          </Link>
-          <div className="dropdown-menu" aria-labelledby="dropdownmenu2">
-            <Link className="dropdown-item" to="/dashboard">
-              Əsas səhifə
-            </Link>
-            <br />
-            <Link className="dropdown-item" to="/productlist">
-              Məhsullar
-            </Link>
-            <br />
-            <Link className="dropdown-item" to="/orderlist">
-              Sifarişlər
-            </Link>
-            <br />
-            <Link className="dropdown-item" to="/userlist">
-              İstifadəçilər
-            </Link>
-          </div>
         </div>
       )}
     </header>
