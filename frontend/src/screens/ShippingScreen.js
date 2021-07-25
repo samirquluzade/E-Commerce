@@ -68,12 +68,13 @@ export default function ShippingScreen(props) {
               Telefonunuz
             </label>
             <input
-              type="number"
+              type="tel"
               id="phone"
               className="form__input"
               placeholder="0551234567"
               required
               maxlength="10"
+              minLength="10"
               value={phone}
               onChange={e => setPhone(e.target.value)}
             />

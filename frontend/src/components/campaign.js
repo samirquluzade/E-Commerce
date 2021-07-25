@@ -3,7 +3,7 @@ import { Product } from "./product";
 import { LoadingBox } from "./LoadingBox";
 import { MessageBox } from "./MessageBox";
 import { useDispatch, useSelector } from "react-redux";
-import { listProducts } from "../actions/ProductActions";
+import { homeProducts } from "../actions/ProductActions";
 import { Link } from "react-router-dom";
 
 export const Campaign = () => {
@@ -13,8 +13,8 @@ export const Campaign = () => {
   const { loading, error, products } = productList;
 
   useEffect(() => {
-    dispatch(listProducts());
-  }, []);
+    dispatch(homeProducts());
+  }, [dispatch]);
   return (
     <div>
       {loading ? (

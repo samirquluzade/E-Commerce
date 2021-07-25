@@ -14,7 +14,7 @@ export const Header = () => {
   return (
     <header>
       <input type="checkbox" id="check" />
-      <label for="check" className="checkbtn">
+      <label htmlFor="check" className="checkbtn">
         <i className="fas fa-bars"></i>
       </label>
       <Link
@@ -24,7 +24,7 @@ export const Header = () => {
       >
         <img
           className="logo"
-          src="/images/1_6jjSw8IqGbsPZp7L_43YyQ.png"
+          src="https://i.ibb.co/fFYwnk0/1-6jj-Sw8-Iq-Gbs-PZp7-L-43-Yy-Q.png"
           alt="logo"
         />
       </Link>
@@ -235,7 +235,7 @@ export const Header = () => {
               Sifarişlər
             </Link>
             <br />
-            <Link className="dropdown-item" to="/userlist">
+            <Link className="dropdown-item" to="/userslist">
               İstifadəçilər
             </Link>
           </div>

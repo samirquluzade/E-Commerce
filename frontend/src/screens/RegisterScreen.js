@@ -36,74 +36,76 @@ export default function RegisterScreen(props) {
     }
   }, [props.history, redirect, userInfo]);
   return (
-    <section class="menu-body">
-      <div class="container text-center">
+    <section className="menu-body">
+      <div className="container text-center">
         <h2>Qeydiyyat</h2>
-        <form class="form--signup" onSubmit={submitHandler}>
+        <form className="form--signup" onSubmit={submitHandler}>
           {loading && <LoadingBox></LoadingBox>}
           {error && (
             <MessageBox variant="danger">
               Bu email ilə hesab mövcuddur.Başqa email istifadə edin!
             </MessageBox>
           )}
-          <div class="form-group">
-            <label class="form__label" htmlFor="name">
+          <div className="form-group">
+            <label className="form__label" htmlFor="name">
               Ad
             </label>
             <input
               type="text"
               id="name"
-              class="form__input"
+              className="form__input"
               placeholder="Adınız"
               required
               onChange={e => setName(e.target.value)}
             />
           </div>
-          <div class="form-group">
-            <label class="form__label" htmlFor="email">
+          <div className="form-group">
+            <label className="form__label" htmlFor="email">
               Email
             </label>
             <input
               type="email"
               id="email"
-              class="form__input"
+              className="form__input"
               placeholder="you@example.com"
               required
               onChange={e => setEmail(e.target.value)}
             />
           </div>
-          <div class="form-group">
-            <label class="form__label" htmlFor="password">
+          <div className="form-group">
+            <label className="form__label" htmlFor="password">
               Şifrə
             </label>
             <input
               type="password"
               id="password"
-              class="form__input"
+              className="form__input"
               placeholder="••••••••"
               required
               minlength="8"
               onChange={e => setPassword(e.target.value)}
             />
           </div>
-          <div class="form-group">
-            <label class="form__label" htmlFor="passwordConfirm">
+          <div className="form-group">
+            <label className="form__label" htmlFor="passwordConfirm">
               Şifrənin təkrarı
             </label>
             <input
               type="password"
               id="passwordConfirm"
-              class="form__input"
+              className="form__input"
               placeholder="••••••••"
               required
               minlength="8"
               onChange={e => setPasswordConfirm(e.target.value)}
             />
           </div>
-          <div class="form-group text-center">
-            <button class="btn btn-success login__btn">Qeydiyyatdan keç</button>
+          <div className="form-group text-center">
+            <button className="btn btn-success login__btn">
+              Qeydiyyatdan keç
+            </button>
           </div>
-          <div class="form-group text-center">
+          <div className="form-group text-center">
             <label />
             <div>
               Hesabınız var?

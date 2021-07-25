@@ -16,7 +16,7 @@ export default function SortedProductsScreen(props) {
   const { loading, error, products } = productList;
   useEffect(() => {
     dispatch(filterProductsSort(productCategory, min, max, sort));
-  }, [dispatch, min, max, sort]);
+  }, [dispatch, productCategory, min, max, sort]);
   return (
     <div>
       {loading ? (

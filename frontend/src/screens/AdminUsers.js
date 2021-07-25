@@ -1,25 +1,26 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { deleteUser, listUsers } from "../actions/UserActions";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 import Swal from "sweetalert2";
-import { deleteProduct, listProducts } from "../actions/ProductActions";
-import { PRODUCT_DETAILS_RESET } from "../constants/ProductConstants";
+import { USER_DETAILS_RESET } from "../constants/UserConstants";
 
-export default function AdminProducts(props) {
-  const productList = useSelector(state => state.productList);
-  const { loading, error, products } = productList;
+export default function AdminUsers(props) {
+  const usersList = useSelector(state => state.usersList);
+  const { loading, error, users } = usersList;
 
-  const productDelete = useSelector(state => state.productDelete);
-  const { success: successDelete } = productDelete;
+  const deletedUser = useSelector(state => state.userDelete);
+  const { success: successDelete } = deletedUser;
   let i = 1;
   const dispatch = useDispatch();
+
   useEffect(() => {
-    dispatch(listProducts());
-    dispatch({ type: PRODUCT_DETAILS_RESET });
+    dispatch(listUsers());
+    dispatch({ type: USER_DETAILS_RESET });
     return () => {};
   }, [dispatch, successDelete]);
-  const removeFromListHandler = product => {
+  const removeFromListHandler = user => {
     Swal.fire({
       title: "Silmək istədiyinizdən əminsiniz?",
       text: "Məlumat sistemdən silinəcək",
@@ -31,16 +32,13 @@ export default function AdminProducts(props) {
     }).then(result => {
       if (result.isConfirmed) {
         Swal.fire("Silindi!", "Məlumat uğurla silindi.", "success");
-        dispatch(deleteProduct(product._id));
+        dispatch(deleteUser(user._id));
       }
     });
   };
-  const updateHandler = product => {
-    props.history.push(`/product/${product._id}/edit`);
+  const updateHandler = user => {
+    props.history.push(`/user/${user._id}/edit`);
     window.location.reload();
-  };
-  const createHandler = () => {
-    props.history.push("/product/create");
   };
   return (
     <div>
@@ -52,16 +50,9 @@ export default function AdminProducts(props) {
         <section className="section---1">
           <div
             className="category-title"
-            style={{ display: "flex", justifyContent: "space-evenly" }}
+            style={{ display: "flex", justifyContent: "center" }}
           >
-            <h1>Bütün məhsullar</h1>
-            <button
-              type="button"
-              className="btn btn-success"
-              onClick={createHandler}
-            >
-              Yeni məhsul
-            </button>
+            <h1>Bütün istifadəçilər</h1>
           </div>
           <div className="category-search">
             <table className="table text-center">
@@ -71,13 +62,13 @@ export default function AdminProducts(props) {
                     #
                   </th>
                   <th className="text-center" scope="col">
-                    Şəkil
+                    Ad
                   </th>
                   <th className="text-center" scope="col">
-                    Başlıq
+                    Email
                   </th>
                   <th className="text-center" scope="col">
-                    Qiymət
+                    Rol
                   </th>
                   <th className="text-center" scope="col">
                     Yenilə
@@ -88,18 +79,18 @@ export default function AdminProducts(props) {
                 </tr>
               </thead>
               <tbody>
-                {products.map(product => (
-                  <tr key={product._id}>
+                {users.map(user => (
+                  <tr key={user._id}>
                     <th scope="row" className="text-center">
                       {i++}
                     </th>
-                    <td>{product.image.substring(8, product.image.length)}</td>
-                    <td>{product.name}</td>
-                    <td>{product.price}</td>
+                    <td>{user.name}</td>
+                    <td>{user.email}</td>
+                    <td>{user.isAdmin ? "Admin" : "User"}</td>
                     <td>
                       <button
-                        className="btn btn-info"
-                        onClick={e => updateHandler(product)}
+                        className="btn btn-primary"
+                        onClick={() => updateHandler(user)}
                       >
                         Yenilə
                       </button>
@@ -107,7 +98,7 @@ export default function AdminProducts(props) {
                     <td>
                       <button
                         className="btn btn-danger"
-                        onClick={() => removeFromListHandler(product)}
+                        onClick={() => removeFromListHandler(user)}
                       >
                         Sil
                       </button>

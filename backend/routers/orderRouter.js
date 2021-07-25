@@ -1,7 +1,7 @@
 import express from "express";
 import expressAsyncHandler from "express-async-handler";
 import Order from "../models/orderModel.js";
-import { isAuth } from "../utils.js";
+import { isAdmin, isAuth } from "../utils.js";
 
 const orderRouter = express.Router();
 
@@ -13,6 +13,20 @@ orderRouter.get(
     res.send(orders);
   })
 );
+orderRouter.delete(
+  "/orderslist/:id",
+  isAuth,
+  isAdmin,
+  expressAsyncHandler(async (req, res) => {
+    const deletedOrders = await Order.findById(req.params.id);
+    if (deletedOrders) {
+      await deletedOrders.remove();
+      res.send({ message: "Order Deleted" });
+    } else {
+      res.send("Error in Deletion");
+    }
+  })
+);
 orderRouter.get(
   "/orderslist",
   isAuth,
@@ -21,7 +35,6 @@ orderRouter.get(
     res.send(orders);
   })
 );
-
 orderRouter.post(
   "/",
   isAuth,

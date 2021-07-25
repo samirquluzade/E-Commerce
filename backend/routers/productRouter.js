@@ -2,6 +2,7 @@ import express from "express";
 import Product from "../models/productModel.js";
 import data from "../data.js";
 import expressAsyncHandler from "express-async-handler";
+import { isAdmin, isAuth } from "../utils.js";
 
 const productRouter = express.Router();
 
@@ -17,6 +18,93 @@ productRouter.get(
   expressAsyncHandler(async (req, res) => {
     const createdProducts = await Product.insertMany(data.products);
     res.send({ createdProducts });
+  })
+);
+productRouter.delete(
+  "/:id",
+  isAuth,
+  isAdmin,
+  expressAsyncHandler(async (req, res) => {
+    const deletedProduct = await Product.findById(req.params.id);
+    if (deletedProduct) {
+      await deletedProduct.remove();
+      res.send({ message: "Product Deleted" });
+    } else {
+      res.send("Error in Deletion");
+    }
+  })
+);
+productRouter.post(
+  "/",
+  expressAsyncHandler(async (req, res) => {
+    const product = new Product({
+      name: req.body.name,
+      category: req.body.category,
+      image: req.body.image,
+      images: req.body.images,
+      price: req.body.price,
+      priceDiscount: req.body.priceDiscount,
+      brand: req.body.brand,
+      MP: req.body.MP,
+      RAM: req.body.RAM,
+      OS: req.body.OS,
+      INCH: req.body.INCH,
+      mAH: req.body.mAH,
+      memory: req.body.memory,
+      screen: req.body.screen,
+      SIM: req.body.SIM,
+    });
+    const createdProduct = await product.save();
+    res.send({
+      _id: createdProduct._id,
+      name: createdProduct.name,
+      category: createdProduct.category,
+      image: createdProduct.image,
+      images: createdProduct.images,
+      price: createdProduct.price,
+      priceDiscount: createdProduct.priceDiscount,
+      brand: createdProduct.brand,
+      MP: createdProduct.MP,
+      RAM: createdProduct.RAM,
+      OS: createdProduct.OS,
+      INCH: createdProduct.INCH,
+      mAH: createdProduct.mAH,
+      memory: createdProduct.memory,
+      screen: createdProduct.screen,
+      SIM: createdProduct.SIM,
+    });
+  })
+);
+productRouter.put(
+  "/:id",
+  isAuth,
+  isAdmin,
+  expressAsyncHandler(async (req, res) => {
+    const product = await Product.findById(req.params.id);
+    if (product) {
+      product.name = req.body.name;
+      product.price = req.body.price;
+      product.image = req.body.image;
+      product.images = req.body.images;
+      product.brand = req.body.brand;
+      product.category = req.body.category;
+      product.MP = req.body.MP;
+      product.RAM = req.body.RAM;
+      product.OS = req.body.OS;
+      product.INCH = req.body.INCH;
+      product.mAH = req.body.mAH;
+      product.memory = req.body.memory;
+      product.screen = req.body.screen;
+      product.SIM = req.body.SIM;
+
+      const updatedProduct = await product.save();
+      if (updatedProduct) {
+        return res
+          .status(200)
+          .send({ message: "Product Updated", data: updatedProduct });
+      }
+    }
+    return res.status(500).send({ message: "Error in updating" });
   })
 );
 productRouter.get(

@@ -26,7 +26,7 @@ export default function OrderScreen(props) {
       // dispatch({ type: ORDER_PAY_RESET });
       dispatch(detailsOrder(orderId));
     }
-  }, [orderId, dispatch, order]);
+  }, [orderId, successPay, dispatch, order]);
 
   const successPaymentHandler = e => {
     e.preventDefault();

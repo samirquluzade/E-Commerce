@@ -3,7 +3,7 @@ import expressAsyncHandler from "express-async-handler";
 import data from "../data.js";
 import bcrypt from "bcryptjs";
 import User from "../models/userModel.js";
-import { generateToken, isAuth } from "../utils.js";
+import { generateToken, isAdmin, isAuth } from "../utils.js";
 
 const userRouter = express.Router();
 
@@ -34,6 +34,40 @@ userRouter.post(
     res.status(401).send({ message: "Invalid email or password!" });
   })
 );
+userRouter.delete(
+  "/:id",
+  isAuth,
+  isAdmin,
+  expressAsyncHandler(async (req, res) => {
+    const deletedUser = await User.findById(req.params.id);
+    if (deletedUser) {
+      await deletedUser.remove();
+      res.send({ message: "User Deleted" });
+    } else {
+      res.send("Error in Deletion");
+    }
+  })
+);
+userRouter.put(
+  "/:id",
+  isAuth,
+  isAdmin,
+  expressAsyncHandler(async (req, res) => {
+    const user = await User.findById(req.params.id);
+    if (user) {
+      user.name = req.body.name;
+      user.email = req.body.email;
+      user.isAdmin = req.body.isAdmin;
+      const updatedUser = await user.save();
+      if (updatedUser) {
+        return res
+          .status(200)
+          .send({ message: "User Updated", data: updatedUser });
+      }
+    }
+    return res.status(500).send({ message: " Error in Updating User." });
+  })
+);
 userRouter.post(
   "/register",
   expressAsyncHandler(async (req, res) => {
@@ -57,6 +91,18 @@ userRouter.get(
   "/:id",
   expressAsyncHandler(async (req, res) => {
     const user = await User.findById(req.params.id);
+    if (user) {
+      res.send(user);
+    } else {
+      res.status(404).send({ message: "Istifadəçi tapılmadı!" });
+    }
+  })
+);
+userRouter.get(
+  "/",
+  isAuth,
+  expressAsyncHandler(async (req, res) => {
+    const user = await User.find({});
     if (user) {
       res.send(user);
     } else {

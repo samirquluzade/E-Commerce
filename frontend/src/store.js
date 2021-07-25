@@ -3,27 +3,34 @@ import thunk from "redux-thunk";
 import { cartReducer } from "./reducers/CartReducers";
 import {
   orderCreateReducer,
+  orderDeleteReducer,
   orderDetailsReducer,
   orderListReducer,
   orderMineListReducer,
   orderPayReducer,
 } from "./reducers/OrderReducers";
 import {
+  createProductReducer,
   filterProductsByItemPriceCategoryReducer,
   filterProductsByItemPriceReducer,
   filterProductsByItemReducer,
   filterProductsPriceReducer,
   filterProductsReducer,
+  productDeleteReducer,
   productDetailsReducer,
   productListReducer,
+  productUpdateReducer,
   SortProductsBrandReducer,
   SortProductsReducer,
 } from "./reducers/ProductReducers";
 import {
+  userDeleteReducer,
   userDetailsReducer,
+  userListReducer,
   userLoginReducer,
   userRegisterReducer,
   userUpdateProfileReducer,
+  userUpdateReducer,
 } from "./reducers/UserReducers";
 
 const initialState = {
@@ -44,15 +51,21 @@ const initialState = {
 const reducer = combineReducers({
   productList: productListReducer,
   productDetails: productDetailsReducer,
+  productCreate: createProductReducer,
+  productDelete: productDeleteReducer,
+  productUpdate: productUpdateReducer,
   cart: cartReducer,
   userLogin: userLoginReducer,
+  userUpdate: userUpdateReducer,
   userRegister: userRegisterReducer,
   orderCreate: orderCreateReducer,
   orderDetails: orderDetailsReducer,
+  orderDelete: orderDeleteReducer,
   orderPay: orderPayReducer,
   orderMineList: orderMineListReducer,
   ordersList: orderListReducer,
   userDetails: userDetailsReducer,
+  userDelete: userDeleteReducer,
   userUpdateProfile: userUpdateProfileReducer,
   filteredProducts: filterProductsReducer,
   filteredProductsById: filterProductsByItemReducer,
@@ -61,6 +74,7 @@ const reducer = combineReducers({
   sortProductReducer: SortProductsReducer,
   sortProductsBrandReducer: SortProductsBrandReducer,
   filterProductsPrice: filterProductsPriceReducer,
+  usersList: userListReducer,
 });
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(

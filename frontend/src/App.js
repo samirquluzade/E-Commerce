@@ -22,6 +22,11 @@ import SortedProductsScreen from "./screens/SortedProductsScreen";
 import SortedProductsBrandScreen from "./screens/SortedProductsBrandScreen";
 import AdminProducts from "./screens/AdminProducts";
 import AdminOrders from "./screens/AdminOrders";
+import AdminUsers from "./screens/AdminUsers";
+import PrivateRouteForProfile from "./components/PrivateRouteForProfile";
+import AdminProductsUpdate from "./screens/AdminProductsUpdate";
+import AdminUsersUpdate from "./screens/AdminUsersUpdate";
+import AdminCreateProducts from "./screens/AdminCreateProducts";
 
 function App() {
   return (
@@ -30,15 +35,17 @@ function App() {
       <main>
         <Switch>
           <Route path="/cart/:id?" component={CartScreen}></Route>
+          <PrivateRoute
+            path="/product/create"
+            component={AdminCreateProducts}
+          ></PrivateRoute>
           <Route path="/product/:id" component={ProductScreen} exact></Route>
-          <Route path="/productlist" component={AdminProducts} exact></Route>
           <Route path="/login" component={LoginScreen}></Route>
           <Route path="/register" component={RegisterScreen}></Route>
           <Route path="/shipping" component={ShippingScreen}></Route>
           <Route path="/placeorder" component={PlaceOrderScreen}></Route>
           <Route path="/order/:id" component={OrderScreen}></Route>
           <Route path="/orderhistory" component={OrderHistoryScreen}></Route>
-          <Route path="/orderslist" component={AdminOrders}></Route>
           <Route
             path="/products/:category/:min&:max"
             component={FilteredProductsPriceSecondScreen}
@@ -79,9 +86,26 @@ function App() {
             component={FilteredProductsPriceScreen}
             exact
           ></Route>
-          <PrivateRoute
+          <PrivateRouteForProfile
             path="/profile"
             component={ProfileScreen}
+          ></PrivateRouteForProfile>
+          <PrivateRoute
+            path="/productlist"
+            component={AdminProducts}
+          ></PrivateRoute>
+          <PrivateRoute
+            path="/product/:id/edit"
+            component={AdminProductsUpdate}
+          ></PrivateRoute>
+          <PrivateRoute
+            path="/user/:id/edit"
+            component={AdminUsersUpdate}
+          ></PrivateRoute>
+          <PrivateRoute path="/userslist" component={AdminUsers}></PrivateRoute>
+          <PrivateRoute
+            path="/orderslist"
+            component={AdminOrders}
           ></PrivateRoute>
           <Route path="/" component={HomeScreen} exact></Route>
         </Switch>

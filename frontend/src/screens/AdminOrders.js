@@ -1,18 +1,41 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { listOrders } from "../actions/OrderActions";
+import { deleteOrder, listOrders } from "../actions/OrderActions";
+import Swal from "sweetalert2";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
+import { ORDER_DETAILS_RESET } from "../constants/OrderConstants";
 
 export default function AdminOrders(props) {
-  const dispatch = useDispatch();
   const orderslist = useSelector(state => state.ordersList);
-  let i = 1;
-
   const { loading, error, orders } = orderslist;
+
+  const orderDelete = useSelector(state => state.orderDelete);
+  const { success: successDelete } = orderDelete;
+  let i = 1;
+  const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(listOrders());
-  }, []);
+    dispatch({ type: ORDER_DETAILS_RESET });
+    return () => {};
+  }, [dispatch, successDelete]);
+  const removeFromListHandler = order => {
+    Swal.fire({
+      title: "Silmək istədiyinizdən əminsiniz?",
+      text: "Məlumat sistemdən silinəcək",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sil",
+    }).then(result => {
+      if (result.isConfirmed) {
+        Swal.fire("Silindi!", "Məlumat uğurla silindi.", "success");
+        dispatch(deleteOrder(order._id));
+      }
+    });
+  };
   return (
     <div>
       {loading ? (
@@ -50,9 +73,6 @@ export default function AdminOrders(props) {
                     Ətraflı
                   </th>
                   <th className="text-center" scope="col">
-                    Yenilə
-                  </th>
-                  <th className="text-center" scope="col">
                     Sil
                   </th>
                 </tr>
@@ -65,24 +85,27 @@ export default function AdminOrders(props) {
                     </th>
                     <td>{order.createdAt}</td>
                     <td>{order.totalPrice}</td>
+                    <td>{order.isPaid ? order.paidAt : "Ödənilmədi"}</td>
                     <td>
-                      {order.isPaid
-                        ? order.paidAt.substring(0, 10)
-                        : "Ödənilmədi"}
+                      {order.isDelivered ? order.deliveredAt : "Göndərilmədi"}
                     </td>
                     <td>
-                      {order.isDelivered
-                        ? order.deliveredAt.substring(0, 10)
-                        : "Göndərilmədi"}
+                      <button
+                        className="btn btn-primary"
+                        onClick={() =>
+                          props.history.push(`/order/${order._id}`)
+                        }
+                      >
+                        Ətraflı
+                      </button>
                     </td>
                     <td>
-                      <button className="btn btn-primary">Ətraflı</button>
-                    </td>
-                    <td>
-                      <button className="btn btn-info">Yenilə</button>
-                    </td>
-                    <td>
-                      <button className="btn btn-danger">Sil</button>
+                      <button
+                        className="btn btn-danger"
+                        onClick={() => removeFromListHandler(order)}
+                      >
+                        Sil
+                      </button>
                     </td>
                   </tr>
                 ))}
