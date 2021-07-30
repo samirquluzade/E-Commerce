@@ -28,6 +28,9 @@ import {
   PRODUCT_LIST_PRICE_FILTER_SUCCESS,
   PRODUCT_LIST_REQUEST,
   PRODUCT_LIST_SUCCESS,
+  PRODUCT_SEARCH_FAIL,
+  PRODUCT_SEARCH_REQUEST,
+  PRODUCT_SEARCH_SUCCESS,
   PRODUCT_SORT_BY_NAME_CATEGORY_FAIL,
   PRODUCT_SORT_BY_NAME_CATEGORY_REQUEST,
   PRODUCT_SORT_BY_NAME_CATEGORY_SUCCESS,
@@ -105,6 +108,21 @@ export const createProductReducer = (state = {}, action) => {
       return { loading: false, error: action.payload };
     case PRODUCT_CREATE_RESET:
       return {};
+    default:
+      return state;
+  }
+};
+export const searchProductReducer = (
+  state = { loading: true, products: [] },
+  action
+) => {
+  switch (action.type) {
+    case PRODUCT_SEARCH_REQUEST:
+      return { loading: true };
+    case PRODUCT_SEARCH_SUCCESS:
+      return { loading: false, products: action.payload };
+    case PRODUCT_SEARCH_FAIL:
+      return { loading: false, error: action.payload };
     default:
       return state;
   }

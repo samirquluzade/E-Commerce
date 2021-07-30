@@ -31,6 +31,9 @@ import {
   PRODUCT_CREATE_REQUEST,
   PRODUCT_CREATE_SUCCESS,
   PRODUCT_CREATE_FAIL,
+  PRODUCT_SEARCH_FAIL,
+  PRODUCT_SEARCH_REQUEST,
+  PRODUCT_SEARCH_SUCCESS,
 } from "../constants/ProductConstants";
 
 export const listProducts = () => async (dispatch, getState) => {
@@ -82,6 +85,15 @@ export const deleteProduct = productId => async (dispatch, getState) => {
           ? error.response.data.message
           : error.message,
     });
+  }
+};
+export const searchProduct = key => async dispatch => {
+  try {
+    dispatch({ type: PRODUCT_SEARCH_REQUEST, payload: key });
+    const { data } = await axios.get(`/api/products/search=${key}`);
+    dispatch({ type: PRODUCT_SEARCH_SUCCESS, payload: data });
+  } catch (err) {
+    dispatch({ type: PRODUCT_SEARCH_FAIL, payload: err.message });
   }
 };
 export const updateProduct = product => async (dispatch, getState) => {

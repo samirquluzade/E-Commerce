@@ -133,15 +133,17 @@ nav ul ul{
 }
 nav ul li:hover > ul{
     display: block;
+    background: black;
 }
 nav ul ul li{
     width: 150px;
     float: none;
     display: list-item;
     position: relative;
+    
 }
 nav ul ul li a{
-    color:black
+    color:white;
 }
 .nav__links li{
     display: inline-block;
@@ -407,14 +409,20 @@ nav ul ul li a{
     width: 100%;
 }
 .dots__dot--active {
-    /* background-color: #fff; */
     background-color: lime;
     opacity: 1;
 }
 .search{
+    display: flex;
+    flex-direction: row;
     padding-top: 3%;
     width: 70%;
     margin: 0 auto;
+}
+.searchs{
+    display: flex;
+    background: wheat;
+    padding-top: 2%;
 }
 .section-title{
     margin-bottom: 3%;

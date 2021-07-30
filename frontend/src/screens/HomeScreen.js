@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Slider } from "../components/slider";
-import { Campaign } from "../components/campaign";
+import Campaign from "../components/campaign";
 
 export const HomeScreen = () => {
   return (

@@ -34,6 +34,15 @@ productRouter.delete(
     }
   })
 );
+productRouter.get(
+  "/search=:search",
+  expressAsyncHandler(async (req, res) => {
+    const products = await Product.find({
+      name: { $regex: req.params.search, $options: "i" },
+    });
+    res.send(products);
+  })
+);
 productRouter.post(
   "/",
   expressAsyncHandler(async (req, res) => {

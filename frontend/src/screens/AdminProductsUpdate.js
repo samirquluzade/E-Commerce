@@ -162,30 +162,21 @@ export default function AdminProductsUpdate(props) {
               />
             </div>
             <div className="inputs">
-              <label htmlFor="image">Şəkil linki</label>
-              <input
-                className="form-control"
-                id="image"
-                type="text"
-                placeholder="Şəklin linkini əlavə edin"
-                value={image}
-                onChange={e => setImage(e.target.value)}
-              />
-            </div>
-            <div className="inputs">
-              <label htmlFor="image-file">Fayl</label>
-              <input
-                className="form-control"
-                type="file"
-                id="image-file"
-                label="Şəkil seç"
-                onChange={uploadFileHandler}
-              />
-
+              <label htmlFor="image">Fayl</label>
+              <div className="inputs">
+                <ul>{image}</ul>
+                <input
+                  className="form-control"
+                  type="file"
+                  id="image"
+                  label="Şəkil seç"
+                  onChange={uploadFileHandler}
+                />
+              </div>
               {uploading && <LoadingBox />}
             </div>
             <div className="inputs">
-              <label htmlFor="image-file">Additional Images</label>
+              <label htmlFor="images">Əlavə şəkillər</label>
               <div className="inputs">
                 <ul>
                   {images.length === 0 && <li>Şəkil yoxdur</li>}
@@ -196,7 +187,7 @@ export default function AdminProductsUpdate(props) {
                 <input
                   className="form-control"
                   type="file"
-                  id="additional-image-file"
+                  id="images"
                   label="Şəkil seç"
                   onChange={e => uploadFileHandler(e, true)}
                 />

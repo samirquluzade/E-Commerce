@@ -36,6 +36,9 @@ export const Product = props => {
               {product.priceDiscount ? (
                 <React.Fragment>
                   <h3 className="card-text text-center">
+                    <del>{product.price}₼</del>
+                  </h3>
+                  <h3 className="card-text text-center">
                     {product.priceDiscount}₼
                   </h3>
                 </React.Fragment>

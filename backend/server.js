@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import productRouter from "./routers/productRouter.js";
 import userRouter from "./routers/userRouter.js";
 import orderRouter from "./routers/orderRouter.js";
+import uploadRouter from "./routers/uploadRouter.js";
 import path from "path";
 
 dotenv.config();
@@ -19,6 +20,7 @@ mongoose.connect(process.env.MONGODB_URL || "mongodb://localhost/e-commerce", {
 app.use("/api/users", userRouter);
 app.use("/api/products", productRouter);
 app.use("/api/orders", orderRouter);
+app.use("/api/uploads", uploadRouter);
 app.get("/", (req, res) => {
   res.send("Server is ready");
 });

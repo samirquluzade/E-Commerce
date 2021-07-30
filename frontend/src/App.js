@@ -27,6 +27,7 @@ import PrivateRouteForProfile from "./components/PrivateRouteForProfile";
 import AdminProductsUpdate from "./screens/AdminProductsUpdate";
 import AdminUsersUpdate from "./screens/AdminUsersUpdate";
 import AdminCreateProducts from "./screens/AdminCreateProducts";
+import SearchScreen from "./screens/SearchScreen";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
             path="/product/create"
             component={AdminCreateProducts}
           ></PrivateRoute>
+          <Route path="/search=:search" component={SearchScreen}></Route>
           <Route path="/product/:id" component={ProductScreen} exact></Route>
           <Route path="/login" component={LoginScreen}></Route>
           <Route path="/register" component={RegisterScreen}></Route>
@@ -71,6 +73,7 @@ function App() {
             component={FilteredProductsScreen}
             exact
           ></Route>
+
           <Route
             path="/products/:category/:brand/sort=:sort"
             component={SortedProductsBrandScreen}

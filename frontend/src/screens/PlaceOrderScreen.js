@@ -48,14 +48,6 @@ export default function PlaceOrderScreen(props) {
             </li>
             <li>
               <div className="card card-body">
-                <h2>Ödəniş sistemi</h2>
-                <p>
-                  <strong>Ödəmə növü:</strong> {cart.paymentMethod}
-                </p>
-              </div>
-            </li>
-            <li>
-              <div className="card card-body">
                 <h2>Sifariş ediləcək məhsullar</h2>
                 <ul
                   style={{
