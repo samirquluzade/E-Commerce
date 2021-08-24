@@ -24,7 +24,7 @@ export const Header = () => {
       >
         <img
           className="logo"
-          src="https://i.ibb.co/fFYwnk0/1-6jj-Sw8-Iq-Gbs-PZp7-L-43-Yy-Q.png"
+          src="/images/1_6jjSw8IqGbsPZp7L_43YyQ.png"
           alt="logo"
         />
       </Link>
