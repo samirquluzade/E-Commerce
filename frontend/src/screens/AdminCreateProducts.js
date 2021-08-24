@@ -21,10 +21,9 @@ export default function AdminCreateProducts(props) {
   const [SIM, setSIM] = useState("");
   const [images, setImages] = useState([]);
   const [uploading, setUploading] = useState(false);
-  const [errorUpload, setErrorUpload] = useState("");
 
   const CreateProduct = useSelector(state => state.productCreate);
-  const { product, loading, error } = CreateProduct;
+  const { product } = CreateProduct;
 
   const dispatch = useDispatch();
 
@@ -46,7 +45,6 @@ export default function AdminCreateProducts(props) {
       }
       setUploading(false);
     } catch (err) {
-      setErrorUpload(err);
       setUploading(false);
     }
   };
@@ -76,7 +74,7 @@ export default function AdminCreateProducts(props) {
     if (product) {
       props.history.push("/productlist");
     }
-  }, [product]);
+  }, [product, props.history]);
   return (
     <React.Fragment>
       <form
