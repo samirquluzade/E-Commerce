@@ -41,6 +41,7 @@
     "defaults"
   ],
   "devDependencies": {
+    "eslint-config-react-app": "^6.0.0",
     "nodemon": "^2.0.12"
   }
 }

@@ -18,7 +18,6 @@ export default function ProductScreen(props) {
 
   const addToCartHandler = () => {
     dispatch(addToCart(productID, Number(qty)));
-    // props.history.push(`/cart/${productID}?qty=${qty}`);
   };
   const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   return (
@@ -48,6 +47,7 @@ export default function ProductScreen(props) {
                     }}
                   >
                     <img src={product.image} alt="products" />
+                    {/* <img src= */}
                   </div>
                   <div class="col-md-5 text-center" style={{ marginTop: "1%" }}>
                     <div
