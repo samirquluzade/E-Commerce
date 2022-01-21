@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4eebffbb-2d30-49b1-96eb-9dbbc15b3a2d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/public/_redirects" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/build/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +43,9 @@
       <workItem from="1636535250707" duration="7903000" />
       <workItem from="1637170967054" duration="22000" />
       <workItem from="1640022978865" duration="619000" />
-      <workItem from="1641879842266" duration="1305000" />
+      <workItem from="1641879842266" duration="2081000" />
+      <workItem from="1641907604924" duration="16000" />
+      <workItem from="1642753394635" duration="2745000" />
     </task>
     <servers />
   </component>
