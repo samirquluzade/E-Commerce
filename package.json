@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^12.5.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "dotenv": "^4.0.0",
     "express-async-handler": "^1.1.4",
     "heroku": "^7.56.1",
