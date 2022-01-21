@@ -18,7 +18,7 @@ import {
   ORDER_PAY_REQUEST,
   ORDER_PAY_SUCCESS,
 } from "../constants/OrderConstants";
-import axios from "axios";
+import {axiosInstance} from "../config";
 import Swal from "sweetalert2";
 import { CART_EMPTY } from "../constants/CartConstants";
 
@@ -28,7 +28,7 @@ export const createOrder = order => async (dispatch, getState) => {
     const {
       userLogin: { userInfo },
     } = getState();
-    const { data } = await axios.post("/api/orders", order, {
+    const { data } = await axiosInstance.post("/api/orders", order, {
       headers: {
         Authorization: `Bearer ${userInfo.token}`,
       },
@@ -53,7 +53,7 @@ export const deleteOrder = orderId => async (dispatch, getState) => {
       userLogin: { userInfo },
     } = getState();
     dispatch({ type: ORDER_DELETE_REQUEST, payload: orderId });
-    const { data } = await axios.delete(`/api/orders/orderslist/${orderId}`, {
+    const { data } = await axiosInstance.delete(`/api/orders/orderslist/${orderId}`, {
       headers: {
         Authorization: `Bearer ${userInfo.token}`,
       },
@@ -75,7 +75,7 @@ export const detailsOrder = orderId => async (dispatch, getState) => {
     userLogin: { userInfo },
   } = getState();
   try {
-    const { data } = await axios.get(`/api/orders/${orderId}`, {
+    const { data } = await axiosInstance.get(`/api/orders/${orderId}`, {
       headers: { Authorization: `Bearer ${userInfo.token}` },
     });
     dispatch({ type: ORDER_DETAILS_SUCCESS, payload: data });
@@ -94,7 +94,7 @@ export const payOrder = order => async (dispatch, getState) => {
     userLogin: { userInfo },
   } = getState();
   try {
-    const { data } = axios.put(`/api/orders/${order._id}/pay`, {
+    const { data } = axiosInstance.put(`/api/orders/${order._id}/pay`, {
       headers: { Authorization: `Bearer ${userInfo.token}` },
     });
     dispatch({ type: ORDER_PAY_SUCCESS, payload: data });
@@ -113,7 +113,7 @@ export const listOrderMine = () => async (dispatch, getState) => {
     userLogin: { userInfo },
   } = getState();
   try {
-    const { data } = await axios.get("/api/orders/mine", {
+    const { data } = await axiosInstance.get("/api/orders/mine", {
       headers: {
         Authorization: `Bearer ${userInfo.token}`,
       },
@@ -133,7 +133,7 @@ export const listOrders = () => async (dispatch, getState) => {
     userLogin: { userInfo },
   } = getState();
   try {
-    const { data } = await axios.get("/api/orders/orderslist", {
+    const { data } = await axiosInstance.get("/api/orders/orderslist", {
       headers: {
         Authorization: `Bearer ${userInfo.token}`,
       },
