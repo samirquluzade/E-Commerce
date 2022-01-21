@@ -1,4 +1,4 @@
-import axios from "axios";
+import {axiosInstance} from "../config";
 import Swal from "sweetalert2";
 import {
   PRODUCT_LIST_REQUEST,
@@ -44,7 +44,7 @@ export const listProducts = () => async (dispatch, getState) => {
     userLogin: { userInfo },
   } = getState();
   try {
-    const { data } = await axios.get("/api/products", {
+    const { data } = await axiosInstance.get("/api/products", {
       headers: {
         Authorization: `Bearer ${userInfo.token}`,
       },
@@ -59,7 +59,7 @@ export const homeProducts = () => async dispatch => {
     type: PRODUCT_LIST_REQUEST,
   });
   try {
-    const { data } = await axios.get("/api/products");
+    const { data } = await axiosInstance.get("/api/products");
     dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data });
   } catch (err) {
     dispatch({ type: PRODUCT_LIST_FAIL, payload: err.message });
@@ -71,7 +71,7 @@ export const deleteProduct = productId => async (dispatch, getState) => {
       userLogin: { userInfo },
     } = getState();
     dispatch({ type: PRODUCT_DELETE_REQUEST, payload: productId });
-    const { data } = await axios.delete(`/api/products/${productId}`, {
+    const { data } = await axiosInstance.delete(`/api/products/${productId}`, {
       headers: {
         Authorization: `Bearer ${userInfo.token}`,
       },
@@ -90,7 +90,7 @@ export const deleteProduct = productId => async (dispatch, getState) => {
 export const searchProduct = key => async dispatch => {
   try {
     dispatch({ type: PRODUCT_SEARCH_REQUEST, payload: key });
-    const { data } = await axios.get(`/api/products/search=${key}`);
+    const { data } = await axiosInstance.get(`/api/products/search=${key}`);
     dispatch({ type: PRODUCT_SEARCH_SUCCESS, payload: data });
   } catch (err) {
     dispatch({ type: PRODUCT_SEARCH_FAIL, payload: err.message });
@@ -106,7 +106,7 @@ export const updateProduct = product => async (dispatch, getState) => {
       },
     } = getState();
 
-    const { data } = await axios.put(`/api/products/${product._id}`, product, {
+    const { data } = await axiosInstance.put(`/api/products/${product._id}`, product, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -127,7 +127,7 @@ export const filterProducts = products => async dispatch => {
     type: PRODUCT_FILTER_REQUEST,
   });
   try {
-    const { data } = await axios.get(`/api/products/products/${products}`);
+    const { data } = await axiosInstance.get(`/api/products/products/${products}`);
     dispatch({ type: PRODUCT_FILTER_SUCCESS, payload: data });
   } catch (err) {
     dispatch({ type: PRODUCT_FILTER_FAIL, payload: err.message });
@@ -138,7 +138,7 @@ export const filterProductsByItem = (products, filter) => async dispatch => {
     type: PRODUCT_FILTER_BY_ITEM_REQUEST,
   });
   try {
-    const { data } = await axios.get(
+    const { data } = await axiosInstance.get(
       `/api/products/products/${products}/${filter}`
     );
     dispatch({ type: PRODUCT_FILTER_BY_ITEM_SUCCESS, payload: data });
@@ -152,7 +152,7 @@ export const filterProductsByItemPriceCategory =
       type: PRODUCT_FILTER_BY_PRICE_CATEGORY_REQUEST,
     });
     try {
-      const { data } = await axios.get(
+      const { data } = await axiosInstance.get(
         `/api/products/products/${products}/${max}&${min}`
       );
       dispatch({
@@ -172,7 +172,7 @@ export const filterProductsByItemPrice =
       type: PRODUCT_FILTER_BY_PRICE_REQUEST,
     });
     try {
-      const { data } = await axios.get(
+      const { data } = await axiosInstance.get(
         `/api/products/products/${products}/${filter}/${min}&${max}`
       );
       dispatch({ type: PRODUCT_FILTER_BY_PRICE_SUCCESS, payload: data });
@@ -186,7 +186,7 @@ export const filterProductsSort =
       type: PRODUCT_SORT_BY_NAME_CATEGORY_REQUEST,
     });
     try {
-      const { data } = await axios.get(
+      const { data } = await axiosInstance.get(
         `/api/products/products/${products}/${min}&${max}/sort=${sort}`
       );
       dispatch({ type: PRODUCT_SORT_BY_NAME_CATEGORY_SUCCESS, payload: data });
@@ -203,7 +203,7 @@ export const filterProductsBrandSort =
       type: PRODUCT_SORT_BY_NAME_CATEGORY_REQUEST,
     });
     try {
-      const { data } = await axios.get(
+      const { data } = await axiosInstance.get(
         `/api/products/products/${productsCategory}/${productsBrand}/${min}&${max}/sort=${sort}`
       );
       dispatch({ type: PRODUCT_SORT_BY_NAME_CATEGORY_SUCCESS, payload: data });
@@ -220,7 +220,7 @@ export const detailsProduct = productID => async dispatch => {
     payload: productID,
   });
   try {
-    const { data } = await axios.get(`/api/products/${productID}`);
+    const { data } = await axiosInstance.get(`/api/products/${productID}`);
     dispatch({ type: PRODUCT_DETAILS_SUCCESS, payload: data });
   } catch (err) {
     dispatch({
@@ -259,7 +259,7 @@ export const createProduct =
         },
       } = getState();
       dispatch({ type: PRODUCT_CREATE_REQUEST });
-      const { data } = await axios.post(
+      const { data } = await axiosInstance.post(
         `/api/products`,
         {
           name,

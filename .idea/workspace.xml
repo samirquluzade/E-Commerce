@@ -2,15 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4eebffbb-2d30-49b1-96eb-9dbbc15b3a2d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/public/_redirects" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/build/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/actions/CartActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/actions/CartActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/actions/OrderActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/actions/OrderActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/actions/ProductActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/actions/ProductActions.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -26,7 +34,9 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -46,7 +56,9 @@
       <workItem from="1636535250707" duration="7903000" />
       <workItem from="1637170967054" duration="22000" />
       <workItem from="1640022978865" duration="619000" />
-      <workItem from="1641879842266" duration="1305000" />
+      <workItem from="1641879842266" duration="2081000" />
+      <workItem from="1641907604924" duration="16000" />
+      <workItem from="1642753394635" duration="4378000" />
     </task>
     <servers />
   </component>
